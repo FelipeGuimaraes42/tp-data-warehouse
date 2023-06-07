@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>extract_stage_dimension</name>
+    <name>extract_cup_dimension</name>
     <description/>
     <extended_description/>
     <trans_version/>
     <trans_type>Normal</trans_type>
+    <trans_status>0</trans_status>
     <directory>/</directory>
     <parameters>
     </parameters>
@@ -427,10 +428,10 @@
     <clusterschemas>
     </clusterschemas>
     <created_user>-</created_user>
-    <created_date>2023/06/07 18:35:43.637</created_date>
+    <created_date>2023/06/05 21:45:43.586</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2023/06/07 18:35:43.637</modified_date>
-    <key_for_session_key/>
+    <modified_date>2023/06/05 21:45:43.586</modified_date>
+    <key_for_session_key>H4sIAAAAAAAA/wMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
@@ -493,16 +494,6 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>CSV file input</from>
-      <to>Filter rows</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Filter rows</from>
-      <to>Select values</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Select values</from>
       <to>Sort rows</to>
       <enabled>Y</enabled>
@@ -517,6 +508,16 @@
       <to>Add sequence</to>
       <enabled>Y</enabled>
     </hop>
+    <hop>
+      <from>CSV file input</from>
+      <to>Filter rows</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Filter rows</from>
+      <to>Select values</to>
+      <enabled>Y</enabled>
+    </hop>
   </order>
   <step>
     <name>Add sequence</name>
@@ -529,7 +530,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <valuename>id_stage</valuename>
+    <valuename>id_cup</valuename>
     <use_database>N</use_database>
     <connection>World_Cup</connection>
     <schema/>
@@ -564,7 +565,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <filename>C:\Users\felip\Documents\DW\final\WorldCupMatches.csv</filename>
+    <filename>C:\Users\felip\Documents\DW\final\datasets\WorldCupMatches.csv</filename>
     <filename_field/>
     <rownum_field/>
     <include_filename>N</include_filename>
@@ -830,7 +831,7 @@
     <compare>
       <condition>
         <negated>N</negated>
-        <leftvalue>Stage</leftvalue>
+        <leftvalue>Year</leftvalue>
         <function>IS NOT NULL</function>
         <rightvalue/>
       </condition>
@@ -862,8 +863,8 @@
     </partitioning>
     <fields>
       <field>
-        <name>Stage</name>
-        <rename>stage</rename>
+        <name>Year</name>
+        <rename>year</rename>
       </field>
       <select_unspecified>N</select_unspecified>
     </fields>
@@ -901,7 +902,7 @@
     <unique_rows>N</unique_rows>
     <fields>
       <field>
-        <name>stage</name>
+        <name>year</name>
         <ascending>Y</ascending>
         <case_sensitive>N</case_sensitive>
         <collator_enabled>N</collator_enabled>
@@ -936,7 +937,7 @@
     </partitioning>
     <connection>World_Cup</connection>
     <schema>public</schema>
-    <table>Stage</table>
+    <table>Cup</table>
     <commit>1000</commit>
     <truncate>N</truncate>
     <ignore_errors>N</ignore_errors>
@@ -984,8 +985,8 @@
     <error_description/>
     <fields>
       <field>
-        <name>stage</name>
-        <case_insensitive>N</case_insensitive>
+        <name>year</name>
+        <case_insensitive>Y</case_insensitive>
       </field>
     </fields>
     <attributes/>

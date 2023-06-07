@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>extract_datetime_dimension</name>
+    <name>extract_host_dimension</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -428,10 +428,10 @@
     <clusterschemas>
     </clusterschemas>
     <created_user>-</created_user>
-    <created_date>2023/06/07 18:40:11.360</created_date>
+    <created_date>2023/06/05 21:45:43.586</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2023/06/07 18:40:11.360</modified_date>
-    <key_for_session_key/>
+    <modified_date>2023/06/05 21:45:43.586</modified_date>
+    <key_for_session_key>H4sIAAAAAAAA/wMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
@@ -494,16 +494,6 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>CSV file input</from>
-      <to>Filter rows</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Filter rows</from>
-      <to>Select values</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Select values</from>
       <to>Sort rows</to>
       <enabled>Y</enabled>
@@ -518,6 +508,16 @@
       <to>Add sequence</to>
       <enabled>Y</enabled>
     </hop>
+    <hop>
+      <from>CSV file input</from>
+      <to>Filter rows</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Filter rows</from>
+      <to>Select values</to>
+      <enabled>Y</enabled>
+    </hop>
   </order>
   <step>
     <name>Add sequence</name>
@@ -530,9 +530,9 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <valuename>id_date_time</valuename>
+    <valuename>id_host</valuename>
     <use_database>N</use_database>
-    <connection/>
+    <connection>World_Cup</connection>
     <schema/>
     <seqname>SEQ_</seqname>
     <use_counter>Y</use_counter>
@@ -549,7 +549,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>832</xloc>
+      <xloc>816</xloc>
       <yloc>16</yloc>
       <draw>Y</draw>
     </GUI>
@@ -565,7 +565,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <filename>C:\Users\felip\Documents\DW\final\WorldCupMatches.csv</filename>
+    <filename>C:/Users/felip/Documents/DW/final/datasets/WorldCups.csv</filename>
     <filename_field/>
     <rownum_field/>
     <include_filename>N</include_filename>
@@ -592,51 +592,29 @@
         <trim_type>none</trim_type>
       </field>
       <field>
-        <name>Datetime</name>
+        <name>Country</name>
         <type>String</type>
         <format/>
         <currency>R$</currency>
         <decimal>,</decimal>
         <group>.</group>
-        <length>20</length>
+        <length>12</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
       </field>
       <field>
-        <name>Stage</name>
+        <name>Winner</name>
         <type>String</type>
         <format/>
         <currency>R$</currency>
         <decimal>,</decimal>
         <group>.</group>
-        <length>21</length>
+        <length>10</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
       </field>
       <field>
-        <name>Stadium</name>
-        <type>String</type>
-        <format/>
-        <currency>R$</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <length>47</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>City</name>
-        <type>String</type>
-        <format/>
-        <currency>R$</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <length>15</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>Home Team Name</name>
+        <name>Runners-Up</name>
         <type>String</type>
         <format/>
         <currency>R$</currency>
@@ -647,7 +625,29 @@
         <trim_type>none</trim_type>
       </field>
       <field>
-        <name>Home Team Goals</name>
+        <name>Third</name>
+        <type>String</type>
+        <format/>
+        <currency>R$</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>11</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Fourth</name>
+        <type>String</type>
+        <format/>
+        <currency>R$</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>14</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>GoalsScored</name>
         <type>Integer</type>
         <format>#</format>
         <currency>R$</currency>
@@ -658,7 +658,7 @@
         <trim_type>none</trim_type>
       </field>
       <field>
-        <name>Away Team Goals</name>
+        <name>QualifiedTeams</name>
         <type>Integer</type>
         <format>#</format>
         <currency>R$</currency>
@@ -669,135 +669,25 @@
         <trim_type>none</trim_type>
       </field>
       <field>
-        <name>Away Team Name</name>
-        <type>String</type>
-        <format/>
+        <name>MatchesPlayed</name>
+        <type>Integer</type>
+        <format>#</format>
         <currency>R$</currency>
         <decimal>,</decimal>
         <group>.</group>
-        <length>17</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>Win conditions</name>
-        <type>String</type>
-        <format/>
-        <currency>R$</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <length>36</length>
-        <precision>-1</precision>
+        <length>15</length>
+        <precision>0</precision>
         <trim_type>none</trim_type>
       </field>
       <field>
         <name>Attendance</name>
-        <type>Integer</type>
-        <format>#</format>
+        <type>Number</type>
+        <format>#,###,###.#</format>
         <currency>R$</currency>
         <decimal>,</decimal>
         <group>.</group>
         <length>15</length>
         <precision>0</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>Half-time Home Goals</name>
-        <type>Integer</type>
-        <format>#</format>
-        <currency>R$</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <length>15</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>Half-time Away Goals</name>
-        <type>Integer</type>
-        <format>#</format>
-        <currency>R$</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <length>15</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>Referee</name>
-        <type>String</type>
-        <format/>
-        <currency>R$</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <length>26</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>Assistant 1</name>
-        <type>String</type>
-        <format/>
-        <currency>R$</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <length>26</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>Assistant 2</name>
-        <type>String</type>
-        <format/>
-        <currency>R$</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <length>26</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>RoundID</name>
-        <type>Integer</type>
-        <format>#</format>
-        <currency>R$</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <length>15</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>MatchID</name>
-        <type>Integer</type>
-        <format>#</format>
-        <currency>R$</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <length>15</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>Home Team Initials</name>
-        <type>String</type>
-        <format/>
-        <currency>R$</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <length>3</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>Away Team Initials</name>
-        <type>String</type>
-        <format/>
-        <currency>R$</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <length>3</length>
-        <precision>-1</precision>
         <trim_type>none</trim_type>
       </field>
     </fields>
@@ -810,7 +700,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>48</xloc>
+      <xloc>32</xloc>
       <yloc>16</yloc>
       <draw>Y</draw>
     </GUI>
@@ -831,7 +721,7 @@
     <compare>
       <condition>
         <negated>N</negated>
-        <leftvalue>Datetime</leftvalue>
+        <leftvalue>Country</leftvalue>
         <function>IS NOT NULL</function>
         <rightvalue/>
       </condition>
@@ -845,7 +735,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>192</xloc>
+      <xloc>176</xloc>
       <yloc>16</yloc>
       <draw>Y</draw>
     </GUI>
@@ -863,8 +753,8 @@
     </partitioning>
     <fields>
       <field>
-        <name>Datetime</name>
-        <rename>date_time</rename>
+        <name>Country</name>
+        <rename>name</rename>
       </field>
       <select_unspecified>N</select_unspecified>
     </fields>
@@ -877,7 +767,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>352</xloc>
+      <xloc>336</xloc>
       <yloc>16</yloc>
       <draw>Y</draw>
     </GUI>
@@ -902,7 +792,7 @@
     <unique_rows>N</unique_rows>
     <fields>
       <field>
-        <name>date_time</name>
+        <name>name</name>
         <ascending>Y</ascending>
         <case_sensitive>N</case_sensitive>
         <collator_enabled>N</collator_enabled>
@@ -919,7 +809,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>512</xloc>
+      <xloc>496</xloc>
       <yloc>16</yloc>
       <draw>Y</draw>
     </GUI>
@@ -937,7 +827,7 @@
     </partitioning>
     <connection>World_Cup</connection>
     <schema>public</schema>
-    <table>DateTime</table>
+    <table>HostCountry</table>
     <commit>1000</commit>
     <truncate>N</truncate>
     <ignore_errors>N</ignore_errors>
@@ -963,7 +853,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>992</xloc>
+      <xloc>976</xloc>
       <yloc>16</yloc>
       <draw>Y</draw>
     </GUI>
@@ -985,8 +875,8 @@
     <error_description/>
     <fields>
       <field>
-        <name>date_time</name>
-        <case_insensitive>N</case_insensitive>
+        <name>name</name>
+        <case_insensitive>Y</case_insensitive>
       </field>
     </fields>
     <attributes/>
@@ -998,7 +888,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>672</xloc>
+      <xloc>656</xloc>
       <yloc>16</yloc>
       <draw>Y</draw>
     </GUI>

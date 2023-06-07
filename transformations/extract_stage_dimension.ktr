@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>extract_stadium_dimension</name>
+    <name>extract_stage_dimension</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -427,9 +427,9 @@
     <clusterschemas>
     </clusterschemas>
     <created_user>-</created_user>
-    <created_date>2023/06/07 18:30:56.191</created_date>
+    <created_date>2023/06/07 18:35:43.637</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2023/06/07 18:30:56.191</modified_date>
+    <modified_date>2023/06/07 18:35:43.637</modified_date>
     <key_for_session_key/>
     <is_key_private>N</is_key_private>
   </info>
@@ -529,9 +529,9 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <valuename>id_stadium</valuename>
+    <valuename>id_stage</valuename>
     <use_database>N</use_database>
-    <connection/>
+    <connection>World_Cup</connection>
     <schema/>
     <seqname>SEQ_</seqname>
     <use_counter>Y</use_counter>
@@ -549,7 +549,7 @@
     </remotesteps>
     <GUI>
       <xloc>816</xloc>
-      <yloc>32</yloc>
+      <yloc>16</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -564,7 +564,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <filename>C:\Users\felip\Documents\DW\final\WorldCupMatches.csv</filename>
+    <filename>C:\Users\felip\Documents\DW\final\datasets\WorldCupMatches.csv</filename>
     <filename_field/>
     <rownum_field/>
     <include_filename>N</include_filename>
@@ -810,7 +810,7 @@
     </remotesteps>
     <GUI>
       <xloc>32</xloc>
-      <yloc>32</yloc>
+      <yloc>16</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -830,7 +830,7 @@
     <compare>
       <condition>
         <negated>N</negated>
-        <leftvalue>Stadium</leftvalue>
+        <leftvalue>Stage</leftvalue>
         <function>IS NOT NULL</function>
         <rightvalue/>
       </condition>
@@ -845,7 +845,7 @@
     </remotesteps>
     <GUI>
       <xloc>176</xloc>
-      <yloc>32</yloc>
+      <yloc>16</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -862,12 +862,8 @@
     </partitioning>
     <fields>
       <field>
-        <name>Stadium</name>
-        <rename>name</rename>
-      </field>
-      <field>
-        <name>City</name>
-        <rename>city</rename>
+        <name>Stage</name>
+        <rename>stage</rename>
       </field>
       <select_unspecified>N</select_unspecified>
     </fields>
@@ -881,7 +877,7 @@
     </remotesteps>
     <GUI>
       <xloc>336</xloc>
-      <yloc>32</yloc>
+      <yloc>16</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -905,15 +901,7 @@
     <unique_rows>N</unique_rows>
     <fields>
       <field>
-        <name>name</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>city</name>
+        <name>stage</name>
         <ascending>Y</ascending>
         <case_sensitive>N</case_sensitive>
         <collator_enabled>N</collator_enabled>
@@ -931,7 +919,7 @@
     </remotesteps>
     <GUI>
       <xloc>496</xloc>
-      <yloc>32</yloc>
+      <yloc>16</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -948,7 +936,7 @@
     </partitioning>
     <connection>World_Cup</connection>
     <schema>public</schema>
-    <table>Stadium</table>
+    <table>Stage</table>
     <commit>1000</commit>
     <truncate>N</truncate>
     <ignore_errors>N</ignore_errors>
@@ -975,7 +963,7 @@
     </remotesteps>
     <GUI>
       <xloc>976</xloc>
-      <yloc>32</yloc>
+      <yloc>16</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -996,11 +984,7 @@
     <error_description/>
     <fields>
       <field>
-        <name>name</name>
-        <case_insensitive>N</case_insensitive>
-      </field>
-      <field>
-        <name>city</name>
+        <name>stage</name>
         <case_insensitive>N</case_insensitive>
       </field>
     </fields>
@@ -1014,7 +998,7 @@
     </remotesteps>
     <GUI>
       <xloc>656</xloc>
-      <yloc>32</yloc>
+      <yloc>16</yloc>
       <draw>Y</draw>
     </GUI>
   </step>

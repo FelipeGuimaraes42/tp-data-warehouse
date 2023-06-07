@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>extract_cup_dimension</name>
+    <name>extract_team_dimension</name>
     <description/>
     <extended_description/>
     <trans_version/>
     <trans_type>Normal</trans_type>
-    <trans_status>0</trans_status>
     <directory>/</directory>
     <parameters>
     </parameters>
@@ -428,10 +427,10 @@
     <clusterschemas>
     </clusterschemas>
     <created_user>-</created_user>
-    <created_date>2023/06/05 21:45:43.586</created_date>
+    <created_date>2023/06/07 18:07:53.325</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2023/06/05 21:45:43.586</modified_date>
-    <key_for_session_key>H4sIAAAAAAAA/wMAAAAAAAAAAAA=</key_for_session_key>
+    <modified_date>2023/06/07 18:07:53.325</modified_date>
+    <key_for_session_key/>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
@@ -494,6 +493,16 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
+      <from>CSV file input</from>
+      <to>Filter rows</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Filter rows</from>
+      <to>Select values</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
       <from>Select values</from>
       <to>Sort rows</to>
       <enabled>Y</enabled>
@@ -508,16 +517,6 @@
       <to>Add sequence</to>
       <enabled>Y</enabled>
     </hop>
-    <hop>
-      <from>CSV file input</from>
-      <to>Filter rows</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Filter rows</from>
-      <to>Select values</to>
-      <enabled>Y</enabled>
-    </hop>
   </order>
   <step>
     <name>Add sequence</name>
@@ -530,9 +529,9 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <valuename>id_cup</valuename>
+    <valuename>id_team</valuename>
     <use_database>N</use_database>
-    <connection>World_Cup</connection>
+    <connection/>
     <schema/>
     <seqname>SEQ_</seqname>
     <use_counter>Y</use_counter>
@@ -549,8 +548,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>816</xloc>
-      <yloc>16</yloc>
+      <xloc>811</xloc>
+      <yloc>31</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -565,7 +564,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <filename>C:\Users\felip\Documents\DW\final\WorldCupMatches.csv</filename>
+    <filename>C:\Users\felip\Documents\DW\final\datasets\WorldCupMatches.csv</filename>
     <filename_field/>
     <rownum_field/>
     <include_filename>N</include_filename>
@@ -810,8 +809,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>32</xloc>
-      <yloc>16</yloc>
+      <xloc>27</xloc>
+      <yloc>31</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -831,7 +830,7 @@
     <compare>
       <condition>
         <negated>N</negated>
-        <leftvalue>Year</leftvalue>
+        <leftvalue>Home Team Name</leftvalue>
         <function>IS NOT NULL</function>
         <rightvalue/>
       </condition>
@@ -845,8 +844,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>176</xloc>
-      <yloc>16</yloc>
+      <xloc>171</xloc>
+      <yloc>31</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -863,8 +862,12 @@
     </partitioning>
     <fields>
       <field>
-        <name>Year</name>
-        <rename>year</rename>
+        <name>Home Team Name</name>
+        <rename>name</rename>
+      </field>
+      <field>
+        <name>Home Team Initials</name>
+        <rename>initials</rename>
       </field>
       <select_unspecified>N</select_unspecified>
     </fields>
@@ -877,8 +880,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>336</xloc>
-      <yloc>16</yloc>
+      <xloc>331</xloc>
+      <yloc>31</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -902,7 +905,15 @@
     <unique_rows>N</unique_rows>
     <fields>
       <field>
-        <name>year</name>
+        <name>name</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>initials</name>
         <ascending>Y</ascending>
         <case_sensitive>N</case_sensitive>
         <collator_enabled>N</collator_enabled>
@@ -919,8 +930,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>496</xloc>
-      <yloc>16</yloc>
+      <xloc>491</xloc>
+      <yloc>31</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -937,7 +948,7 @@
     </partitioning>
     <connection>World_Cup</connection>
     <schema>public</schema>
-    <table>Cup</table>
+    <table>Team</table>
     <commit>1000</commit>
     <truncate>N</truncate>
     <ignore_errors>N</ignore_errors>
@@ -963,8 +974,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>976</xloc>
-      <yloc>16</yloc>
+      <xloc>971</xloc>
+      <yloc>31</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -985,8 +996,12 @@
     <error_description/>
     <fields>
       <field>
-        <name>year</name>
-        <case_insensitive>Y</case_insensitive>
+        <name>name</name>
+        <case_insensitive>N</case_insensitive>
+      </field>
+      <field>
+        <name>initials</name>
+        <case_insensitive>N</case_insensitive>
       </field>
     </fields>
     <attributes/>
@@ -998,8 +1013,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>656</xloc>
-      <yloc>16</yloc>
+      <xloc>651</xloc>
+      <yloc>31</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
