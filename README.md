@@ -1,4 +1,5 @@
 # PDI - Pentaho Data Integration
+## Datasets from https://www.kaggle.com/datasets/abecklas/fifa-world-cup
 ## How to perform a transformation
 
 - Run `docker-compose up`
