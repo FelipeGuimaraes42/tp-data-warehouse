@@ -12,6 +12,8 @@
 
 - Use Postgres commands
 
+- Then, open your Spoon and run any of the transformations!
+
 ## Shutting down
 - Run `docker-compose down` to shut down the container
 
