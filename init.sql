@@ -3,6 +3,7 @@ CREATE DATABASE world_cup;
 CREATE TABLE IF NOT EXISTS Cup (
   id_cup INT NOT NULL,
   year INT NOT NULL,
+  country VARCHAR(15) NOT NULL,
   PRIMARY KEY (id_cup)
 );
 CREATE TABLE IF NOT EXISTS HostCountry (
@@ -31,4 +32,19 @@ CREATE TABLE IF NOT EXISTS Team (
   name varchar(50) NOT NULL,
   initials char(3) NOT NULL,
   PRIMARY KEY (id_team)
+);
+CREATE TABLE IF NOT EXISTS Match (
+  id_match INT NOT NULL,
+  fk_cup INT NOT NULL,
+  fk_date INT NOT NULL,
+  fk_stadium INT NOT NULL,
+  fk_stage INT NOT NULL,
+  fk_home_team INT NOT NULL,
+  fk_away_team INT NOT NULL,
+  home_team_goals INT,
+  away_team_goals INT,
+  half_time_home_goals INT,
+  half_time_away_goals INT,
+  attendance INT,
+  PRIMARY KEY (id_match)
 );
