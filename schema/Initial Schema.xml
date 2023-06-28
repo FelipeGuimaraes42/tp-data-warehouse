@@ -1,0 +1,54 @@
+<Schema name="Esquema de Dados Grupo 1 - Partidas de Copa">
+  <Cube name="Partidas" visible="true" cache="true" enabled="true">
+    <Table name="match" schema="public" alias="fdPartidas">
+    </Table>
+    <Dimension type="StandardDimension" visible="true" foreignKey="fk_stadium" name="mdStadium">
+      <Hierarchy name="Estadios" visible="true" hasAll="true">
+        <Table name="stadium" schema="public" alias="">
+        </Table>
+        <Level name="Cidade" visible="true" column="city" nameColumn="city" uniqueMembers="false" levelType="Regular">
+        </Level>
+        <Level name="Estadio" visible="true" column="id_stadium" nameColumn="name" uniqueMembers="false" levelType="Regular">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="fk_home_team" name="mdTeams">
+      <Hierarchy name="Times" visible="true" hasAll="true">
+        <Table name="team" schema="public" alias="">
+        </Table>
+        <Level name="Team" visible="true" table="team" column="id_team" nameColumn="name" uniqueMembers="false" levelType="Regular">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="fk_cup" name="mdCup">
+      <Hierarchy name="Copa" visible="true" hasAll="true">
+        <Table name="cup" schema="public" alias="">
+        </Table>
+        <Level name="Pais" visible="true" table="cup" column="id_cup" nameColumn="country" uniqueMembers="false">
+        </Level>
+        <Level name="Ano" visible="true" table="cup" column="id_cup" nameColumn="year" uniqueMembers="false">
+        </Level>
+      </Hierarchy>
+      <Hierarchy name="Sedes" visible="true" hasAll="true">
+        <Table name="hostcountry" schema="public">
+        </Table>
+        <Level name="Host" visible="true" table="hostcountry" column="id_host" nameColumn="name" uniqueMembers="false">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="fk_stage" name="mdStage">
+      <Hierarchy name="Fases" visible="true" hasAll="true">
+        <Table name="stage" schema="public">
+        </Table>
+        <Level name="Fase" visible="true" column="id_stage" nameColumn="stage" uniqueMembers="false">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Measure name="Media de publico" column="attendance" datatype="Numeric" aggregator="avg" visible="true">
+    </Measure>
+    <Measure name="Medias Gols Fora de Casa" column="away_team_goals" datatype="Numeric" aggregator="avg" visible="true">
+    </Measure>
+    <Measure name="Medias Gols em Casa" column="home_team_goals" datatype="Numeric" aggregator="avg" visible="true">
+    </Measure>
+  </Cube>
+</Schema>
