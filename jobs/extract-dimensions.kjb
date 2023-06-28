@@ -543,7 +543,7 @@
       <attributes_kjc/>
     </entry>
     <entry>
-      <name>Extract Match</name>
+      <name>Extract Match Fact</name>
       <description/>
       <type>TRANS</type>
       <attributes/>
@@ -578,6 +578,18 @@
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>1400</xloc>
+      <yloc>48</yloc>
+      <attributes_kjc/>
+    </entry>
+    <entry>
+      <name>Success</name>
+      <description/>
+      <type>SUCCESS</type>
+      <attributes/>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>1600</xloc>
       <yloc>48</yloc>
       <attributes_kjc/>
     </entry>
@@ -639,7 +651,16 @@
     </hop>
     <hop>
       <from>Extract Team</from>
-      <to>Extract Match</to>
+      <to>Extract Match Fact</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Extract Match Fact</from>
+      <to>Success</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
