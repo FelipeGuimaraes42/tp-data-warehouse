@@ -6,11 +6,6 @@ CREATE TABLE IF NOT EXISTS Cup (
   country VARCHAR(15) NOT NULL,
   PRIMARY KEY (id_cup)
 );
-CREATE TABLE IF NOT EXISTS HostCountry (
-  id_host INT NOT NULL,
-  name varchar(50) NOT NULL,
-  PRIMARY KEY (id_host)
-);
 CREATE TABLE IF NOT EXISTS Stage (
   id_stage INT NOT NULL,
   stage varchar(50) NOT NULL,
